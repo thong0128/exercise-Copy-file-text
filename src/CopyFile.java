@@ -13,15 +13,24 @@ public class CopyFile {
                 System.out.println("File already exists");
 
             BufferedReader br = new BufferedReader(new FileReader(source));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(output));
+//            BufferedWriter bw = new BufferedWriter(new FileWriter(output));
+            PrintWriter print = new PrintWriter(new FileWriter(output));
 
-            int line;
-            while ((line = br.read())!=-1){
-                System.out.print((char)line);
-                bw.write((char)line);
+
+
+//            int line;
+//            while ((line = br.read())!=-1){
+//                System.out.print((char)line);
+//                bw.write((char)line);
+//            }
+            String line;
+            while ((line = br.readLine()) !=null){
+                System.out.println(line);
+                print.println(line);
             }
             br.close();
-            bw.close();
+//            bw.close();
+            print.close();
         }catch (Exception e) {
             System.err.println("File not found or invalid content!");
         }
